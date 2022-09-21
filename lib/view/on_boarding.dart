@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kitoob/widgets/onboard_1.dart';
-import 'package:kitoob/widgets/onboard_2.dart';
-import 'package:kitoob/widgets/onboard_3.dart';
-import 'package:kitoob/widgets/onboard_4.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoard extends StatefulWidget {
-  // const OnBoard({Key? key}) : super(key: key);
+  const OnBoard({Key? key}) : super(key: key);
 
   @override
   State<OnBoard> createState() => _OnBoardState();
@@ -16,24 +12,28 @@ class _OnBoardState extends State<OnBoard> {
   @override
 
   PageController _controller = PageController();
-
   Widget build(BuildContext context) {
     return Stack(
       children: [
         PageView(
           controller: _controller,
           children: [
-            Container(
-              child: OnBoardOne(),
+            BuildPage(
+              title: 'Hello amazing',
+              image: 'images/Group6.png',
+              description: 'We couldnt be more thrilled to see you here!'
             ),
-            Container(
-              child: OnBoardTwo(),
+            BuildPage(title: 'Hello amazing',
+            image: 'images/Group6.png',
+            description: 'We couldnt be more thrilled to see you here!'
             ),
-            Container(
-              child: OnBoardThree(),
+            BuildPage(title: 'A platform where everything supports the benefit of humanity and the planet',
+                image: 'images/Group6.png',
+                description: 'Join us to swap ideas, projects, experiences and to find inspiration every day! Upload and share anything related: pictures, videos, ideas, events, news, podcasts oranything you just like!'
             ),
-            Container(
-              child: OnBoardFour(),
+            BuildPage(title: 'Welcome on CM!',
+                image: 'images/Group6.png',
+                description: 'Welcome on the real social media'
             ),
           ],
         ),
@@ -87,3 +87,50 @@ class _OnBoardState extends State<OnBoard> {
     );
   }
 }
+
+class BuildPage extends StatelessWidget {
+  BuildPage({required this.title,required this.description,required this.image});
+
+  String title,description,image;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+         Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              child: Center(
+                child: Image.asset(image),
+                heightFactor: 2.0,
+              ),
+            ),
+            Column(
+              children:<Widget> [
+                Text(title,
+                  style: TextStyle(
+                    color: Color(0xFF216915),
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),SizedBox(
+                  height: 40.0,
+                ),
+                Text(description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ),),
+              ],
+            ),
+          ],
+        ),
+        ],
+      ),
+    );
+  }
+}
+
