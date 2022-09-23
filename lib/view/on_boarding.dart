@@ -84,8 +84,9 @@ class _OnBoardState extends State<OnBoard> {
                   isLastPage ? SizedBox() :
                   TextButton(
                       onPressed: () {
-                    _controller.jumpToPage(4);
-                  }, child: const Text('SKIP>',
+                        _controller.jumpToPage(4);
+                      },
+                      child: Text('SKIP>',
                   style: TextStyle(
                     color: Colors.grey,
                   ),)),

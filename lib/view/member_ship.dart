@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitoob/view/sign_up.dart';
 import 'package:kitoob/view/signin_page.dart';
 
 class MemberShip extends StatefulWidget {
@@ -31,7 +32,7 @@ class _MemberShipState extends State<MemberShip> {
                 ),
                 height: 516.0,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget> [
                          const Text('SELECT YOUR MEMBERSHIP TO CONTINUE',
                       style: TextStyle(
@@ -103,7 +104,9 @@ class _MemberShipState extends State<MemberShip> {
                                   style: TextStyle(
                                       fontSize: 20.0
                                   ),),
-                                TextButton(onPressed: (){}, child:
+                                TextButton(onPressed: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage()));
+                                }, child:
                                 const Icon(
                                   Icons.arrow_forward,
                                   color: Color(0xFF841F6E),
